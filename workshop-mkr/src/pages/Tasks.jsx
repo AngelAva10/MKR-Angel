@@ -1,5 +1,7 @@
-import { TasksList } from '../components/Tasks/TasksList';
+import React from 'react'
 
 export const Tasks = () => {
-  return <TasksList />;
-};
+  return (
+    <div>Tasks</div>
+  )
+}
