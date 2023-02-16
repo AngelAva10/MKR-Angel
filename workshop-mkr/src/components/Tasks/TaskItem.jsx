@@ -1,16 +1,21 @@
-/* eslint-disable react/prop-types */
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { TaskEditForm } from './TaskEditForm'
 
-export const TaskItem = ({ task }) => {
+export const TaskItem = ({task,handleStatus,handleEdit,handleDelete,editMode,handleSubmit,setInputValue,editId,textEdit}) => {
+    console.log({editMode,editId})
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>{task.title}</Card.Title>
-        <Card.Text>{task.description}</Card.Text>
-        <Link to={`${task.id}`}>Read more {task.id}</Link>
-      </Card.Body>
-    </Card>
-  );
-};
+        
+      <div>
+        {editMode && editId===task.id ? <TaskEditForm handleSubmit={handleSubmit} setInputValue={setInputValue} text={task.title} textEdit={textEdit} /> :
+        <>
+          <i className={task.finish ? 'fas fa-circle' : 'far fa-circle' }  onClick={()=>handleStatus(task.id)}></i>
+          <p style={{ textDecorationLine: task.decoration }}>{task.title}</p>
+          <div id="container">
+              <i className='fas fa-pen' onClick={()=>handleEdit(task.id)}></i>
+              <i className='fas fa-trash' onClick={()=>handleDelete(task.id)}></i>
+          </div>
+        </>
+          }
+      </div>
+  )
+}

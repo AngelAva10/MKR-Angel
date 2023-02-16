@@ -1,28 +1,17 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
+import { useLocalStorage } from '../Modules/uselocalStorage'
+import { validateUser } from '../Modules/validateUser'
+import { AuthContext } from './AuthContext'
 
-import { useLocalStorage } from '../components/Hooks/useLocalstorage';
-import { validateUser } from '../components/utils/validateUser';
-import { AuthContext } from './AuthContext';
+export const AuthProvider = ({children}) => {
+    const [logged,setLogged] = useLocalStorage("user",false)
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useLocalStorage('user', false);
+    const handleLogin = ({email,password})=>{
+      const isValidUser = validateUser({email,password})
+      setLogged(isValidUser)
+    }
+    const handleLogOut = ()=>{
+      setLogged(false)
+    }
 
-  const handleLogin = ({ email, password }) => {
-    //  set to backend api
-    const isValidUser = validateUser({
-      email,
-      password
-    });
-    setUser(isValidUser);
-  };
-
-  const handleLogout = () => {
-    setUser(false);
-  };
-
-  return (
-    <AuthContext.Provider value={{ user, handleLogin, handleLogout }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+  return <AuthContext.Provider value={{logged,handleLogin,handleLogOut}}>{children}</AuthContext.Provider>
+}
