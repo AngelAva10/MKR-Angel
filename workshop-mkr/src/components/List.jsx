@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../Context/AuthContext'
+import { AuthContext } from '../context/AuthContext'
 
 export const List = ({list,circle,pen,trash,cancel}) => {
 

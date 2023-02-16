@@ -1,5 +1,5 @@
-import { useLocalStorage } from '../Modules/uselocalStorage'
-import { validateUser } from '../Modules/validateUser'
+import { useLocalStorage } from '../modules/uselocalStorage'
+import { validateUser } from '../modules/validateUser'
 import { AuthContext } from './AuthContext'
 
 export const AuthProvider = ({children}) => {

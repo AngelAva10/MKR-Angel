@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { TaskForm } from '../Components/Tasks/TaskForm'
-import { TaskList } from '../Components/Tasks/TaskList'
-import { useLocalStorage } from '../Modules/uselocalStorage'
+import { TaskForm } from '../components/tasks/TaskForm'
+import { TaskList } from '../components/tasks/TaskList'
+import { useLocalStorage } from '../modules/uselocalStorage'
 
 export const Home = () => {
   const [tasks, setTasks] = useLocalStorage('tasks', [])

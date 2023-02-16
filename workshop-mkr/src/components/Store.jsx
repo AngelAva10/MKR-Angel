@@ -29,14 +29,6 @@ export const Posts = ({ name, date }) => {
     };
   }, []);
 
-  //   setTimeout(() => {
-  //     setPosts([
-  //       { id: 1, title: 'Post 1' },
-  //       { id: 2, title: 'Post 2' },
-  //       { id: 3, title: 'Post 3' },
-  //     ]);
-  //   }, 5000);
-
   if (posts.length === 0) return <div>Loading...</div>;
 
   return (

@@ -13,10 +13,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import { validateUser } from '../Modules/validateUser';
+import { validateUser } from '../modules/validateUser';
 import { useContext } from 'react';
-import { AuthProvider } from '../Context/AuthProvider';
-import { AuthContext } from '../Context/AuthContext';
+import { AuthProvider } from '../context/AuthProvider';
+import { AuthContext } from '../context/AuthContext';
 
 function Copyright(props) {
   return (

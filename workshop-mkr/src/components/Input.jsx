@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router';
 import { Button } from './Button';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../Context/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 
 
 export const Input = ({pendingList,finishList,handleSubmit,setInputValue,text}) => {

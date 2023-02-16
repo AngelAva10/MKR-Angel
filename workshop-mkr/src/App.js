@@ -1,12 +1,12 @@
 
-import {Login} from "./Components/Login"
+import {Login} from "./components/Login"
 import { Navigate, Route,Routes } from 'react-router';
 import { useNavigate } from "react-router";
-import { List } from "./Components/List";
-import { Input } from "./Components/Input";
+import { List } from "./components/List";
+import { Input } from "./components/Input";
 import { useContext, useState } from "react";
-import { AuthContext } from "./Context/AuthContext";
-import { Home } from "./Pages/Home";
+import { AuthContext } from "./context/AuthContext";
+import { Home } from "./pages/Home";
 
 
 
