@@ -7,7 +7,7 @@ const tasksService = require('./task.services');
 
 const createTask = async (req, res) => {
 
-    const { title, description, project } = req.body;
+    const { title, description,project } = req.body;
     // create a new task
     const task = {
         title,
