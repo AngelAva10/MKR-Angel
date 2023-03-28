@@ -1,3 +1,0 @@
-const getGoogleURI = () => {
-    const GoogleURI =
-}
