@@ -1,7 +1,7 @@
 const ServiceError = require("../global/errorHandling/serviceError/ServiceError");
 
 
-const usersService = (userRepository, passwordService, jwtService) => {
+const usersService = (userRepository, passwordService) => {
     return {
         getAllUsers: () => {
             try {
@@ -34,28 +34,6 @@ const usersService = (userRepository, passwordService, jwtService) => {
                 throw new ServiceError(error.message, 404, "usersService.createUser");
             }
         },
-        getUser: async (email, password) => {
-            try {
-                const user = await userRepository.findByEmail(email);
-
-                if (!user) {
-                    return false
-                }
-
-                const isMatch = await passwordService.decryptPassword(password, user.password);;
-
-                if (!isMatch) {
-                    return false
-                }
-
-                const token = jwtService.createAccessToken(user);
-
-                return token;
-            } catch (error) {
-                throw new ServiceError(error.message, 404, "usersService.getUser");
-            }
-        },
-
     }
 
 
