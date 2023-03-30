@@ -24,16 +24,16 @@ const getAllUsers = async (req, res) => {
         res.status(200).json(users)
     } catch (error) {
         console.log(error.message);
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: error.message });
     }
 }
-const getUserById = async (req, res, next) => {
+const getUser = async (req, res, next) => {
     try {
-        const user = await userService.getUserById(req.params.id);
+        const user = await userService.getUser(req.body.email);
         res.status(200).json(user)
     } catch (error) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: error.message });
     }
 }
 
-module.exports = { createUser, getAllUsers, getUserById }
+module.exports = { createUser, getAllUsers, getUser }
